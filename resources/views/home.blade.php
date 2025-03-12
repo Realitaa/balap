@@ -23,7 +23,7 @@
                         <tr>
                             <td><b>Tanggal Lahir</b></td>
                             <td>:</td>
-                            <td>{{ Auth::user()->birthday }}</td>
+                            <td>{{ \Carbon\Carbon::parse(Auth::user()->birthdate)->locale('id')->translatedFormat('d F Y') }}</td>
                         </tr>
                         <tr>
                             <td><b>Alamat</b></td>
@@ -38,7 +38,7 @@
                         <tr>
                             <td><b>Masa Berlaku Hingga</b></td>
                             <td>:</td>
-                            <td>{{ Auth::user()->expired_date }}</td>
+                            <td>{{ \Carbon\Carbon::parse(Auth::user()->expired_date)->locale('id')->translatedFormat('d F Y') }}</td>
                         </tr>
                     </table>
                 </div>

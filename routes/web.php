@@ -37,10 +37,16 @@ Route::middleware(['auth',  RoleMiddleware::class . ':1'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', function () { return view('home'); })->name('user.home');
+
     Route::get('/profile', function () { return view('profile'); })->name('profile');
+
     Route::get('/print', function () { return view('print'); })->name('print');
-    Route::put('/update-basic/{id}', function () { return view('print'); })->name('update.basic');
-    Route::put('/update-additional/{id}', function () { return view('print'); })->name('update.basic');
-    Route::put('/update-password/{id}', function () { return view('print'); })->name('update.basic');
+
+    Route::put('/update-basic', [Member::class, 'basic_update'])->name('update.basic');
+
+    Route::put('/update-additional', [Member::class, 'additional_update'])->name('update.additional');
+    
+    Route::delete('/suicide', [ProfileController::class, 'destroy'])->name('self.destroy');
+
     Route::get('/print', function () { return view('print'); })->name('print');
 });
