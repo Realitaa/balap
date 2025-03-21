@@ -1,3 +1,77 @@
+/* resources/css/app.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Styling untuk dashboard */
+.chart-card {
+    max-height: 500px;
+    margin: 1.25rem;
+}
+
+/* Styling untuk print */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    .card-container {
+        width: 85mm;
+        height: 55mm;
+        border: 1px solid #000;
+        padding: 10mm;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+    .print-button {
+        display: none;
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+.card-container {
+    width: 85mm;
+    height: 55mm;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 10mm;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+}
+.card-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5mm;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3mm;
+}
+.card-row {
+    display: flex;
+    justify-content: space-between;
+}
+.card-label {
+    font-weight: bold;
+}
+.card-photo {
+    width: 25mm;
+    height: 30mm;
+    object-fit: cover;
+    position: absolute;
+    right: 10mm;
+    top: 10mm;
+    border: 1px solid #ccc;
+}
